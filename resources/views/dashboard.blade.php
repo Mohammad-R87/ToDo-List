@@ -96,17 +96,21 @@
                 d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z" />
         </symbol>
     </svg>
-
+    <!-- start main -->
     <main class="d-flex flex-nowrap">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
-            <a href="/"
-                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+            style="width: 22%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi pe-none me-2" width="40" height="32">
+                    <use xlink:href="#grid" />
+                </svg>
                 <span class="fs-4">ToDo List</span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="#" class="nav-link active" aria-current="page">
+                <li>
+                    <a href="#" class="nav-link text-white">
                         <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#speedometer2" />
                         </svg>
@@ -139,43 +143,53 @@
                     <strong>mdo</strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
                     <li><a class="dropdown-item" href="#">Sign out</a></li>
                 </ul>
             </div>
         </div>
-    </main>
-    <section>
-        <header class="p-3 bg-dark text-white">
-            <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                            <use xlink:href="#bootstrap" />
-                        </svg>
-                    </a>
-    
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-                    </ul>
-    
-                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                        <input type="search" class="form-control form-control-dark text-white bg-dark"
-                            placeholder="Search..." aria-label="Search">
-                    </form>
-    
-                    <div class="text-end">
-                        <button type="button" class="btn btn-outline-light me-2">Login</button>
-                        <button type="button" class="btn btn-warning">Sign-up</button>
-                    </div>
-                </div>
+
+        <section class="d-flex" style="width: 78%">
+
+            <div class="d-flex flex-column flex-shrink-0 bg-light category">
+                <a href="/"
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none w-100 name-category"
+                    style="background-color: #2ed7d8">
+                    <i class="far fa-lightbulb" style="font-size: 25px; margin: 5px;"></i>
+                    <span class="fs-4">Open</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-auto p-2">
+                    <li class="item">
+                        <a href="#" class="nav-link link-dark" style="margin: 5px 0;">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="#" class="nav-link link-dark" style="margin: 5px 0;">
+                            Dashboard
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </header>
-    </section>
-    
+
+            <div class="d-flex flex-column flex-shrink-0 bg-light category">
+                <a href="/"
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none w-100 name-category"
+                    style="background-color: #f7578c">
+                    <i class="far fa-check-circle" style="font-size: 25px; margin: 5px;"></i> 
+                    <span class="fs-4">Done</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-auto p-2">
+
+                </ul>
+            </div>
+        </section>
+
+    </main>
+    <!-- end main -->
 </body>
 
 </html>
