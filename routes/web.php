@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 
@@ -14,11 +15,10 @@ use App\Http\Controllers\DashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/dashboard', [DashboardController::class, 'Dashboard']);
+Route::get('/categories', [CategoriesController::class, 'ListCategories'])->name('listcategories');
+Route::post('/categories/store', [CategoriesController::class, "StoreCategories"])->name('storecategories');
+Route::get('/categories/delete/{id}', [CategoriesController::class, "DeleteCategories"]);
 
-// Route::get('/', function () {
-//     return view('dashboard');
-// });
 
-
-Route::get('/', [DashboardController::class, 'Dashboard']);
 

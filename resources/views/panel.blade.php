@@ -110,7 +110,7 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="/dashboard" class="nav-link text-white">
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
@@ -118,7 +118,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="/categories" class="nav-link text-white">
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#table" />
                             </svg>
@@ -126,7 +126,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="/tasks" class="nav-link text-white">
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#grid" />
                             </svg>
