@@ -10,7 +10,6 @@
         <!-- css -->
         <link rel="stylesheet" href="../css/all.css">
         <!-- js -->
-        <script src="../js/all.js"></script>
         <!-- font -->
         <link rel="stylesheet" href="../fonts/font/primary-aviny.css">
         <!-- font - fontawesome -->
@@ -154,22 +153,9 @@
             </div>
             @yield('content')
         </main>
-
-        <script>
-            var modal = document.getElementById("myModal");
-
-            var span = document.getElementsByClassName("close")[0];
-
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="../js/all.js"></script>
     </body>
 
     </html>

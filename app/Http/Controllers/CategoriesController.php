@@ -36,7 +36,8 @@ class CategoriesController extends Controller
         return view('layouts.categories', ["id" => $id]);
     }
 
-    public function EditCategories(CategoriesRequest $request, $id) {
+    public function EditCategories(CategoriesRequest $request) {
+        $id = $request->id;
         $stmt = Category::getID($id);
         if ($stmt) {
             $stmt->name = $request->name;
