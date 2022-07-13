@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+
+    public static function getID($id) {
+        return self::query()->where('id', $id)->first();
+    }
 }

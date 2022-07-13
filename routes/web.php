@@ -19,6 +19,7 @@ Route::get('/dashboard', [DashboardController::class, 'Dashboard']);
 Route::get('/categories', [CategoriesController::class, 'ListCategories'])->name('listcategories');
 Route::post('/categories/store', [CategoriesController::class, "StoreCategories"])->name('storecategories');
 Route::get('/categories/delete/{id}', [CategoriesController::class, "DeleteCategories"]);
-
+Route::get('/categories/update/{id}', [CategoriesController::class, "UpdateCategories"]);
+Route::post('categories/edit/{id}', [CategoriesController::class, "EditCategories"])->name('editcategories');
 
 
