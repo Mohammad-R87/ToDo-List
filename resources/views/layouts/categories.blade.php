@@ -1,95 +1,93 @@
-@extends('panel')
+@extends('index')
+@section('title', 'Categories')
 @section('content')
-    <section class="bg-light" style="width: 78%">
-        <div style="padding: 33px 30px 15px 30px">
-            @foreach ($errors->all() as $error)
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ $error }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+    <div class="section-header">
+        <h1>Categories</h1>
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
+            <div class="breadcrumb-item"><a href="/categories">Categories</a></div>
+            <div class="breadcrumb-item">All Categories</div>
+        </div>
+    </div>
+    <div class="section-body">
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
                     </button>
+                    {{ $error }}
                 </div>
-            @endforeach
-            <form action="{{ route('storecategories') }}" method="POST">
+            </div>
+        @endforeach
+        <div class="form-group">
+            <form action="{{ route('storecategories') }}" method="POST" class="d-flex">
                 @csrf
-                <div class="form-group d-flex">
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="New Category..."
-                        name="name">
-                    <button type="submit" class="btn btn-info">Add</button>
-                </div>
+                <input type="text" class="form-control" name="name" placeholder="New Category...">
+                <button type="submit" class="btn btn-icon btn-lg btn-success"><i class="fas fa-check"></i></a>
             </form>
-            <div class="limiter mt-3">
-                <div class="container-table100">
-                    <div class="wrap-table100">
-                        <div class="table100">
-                            <table>
-                                <thead>
-                                    <tr class="table100-head">
-                                        <th class="column1">ID</th>
-                                        <th class="column2">Name</th>
-                                        <th class="column3">Created</th>
-                                        <th class="column3">Updated</th>
-                                        <th class="column4">Edit</th>
-                                        <th class="column5">Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($categories as $list)
-                                        <tr class="data-row">
-                                            <td class="column1 iteration">{{ $list->id }}</td>
-                                            <td class="column2 name">{{ $list->name }}</td>
-                                            <td class="column3">{{ $list->created_at }}</td>
-                                            <td class="column3">{{ $list->updated_at }}</td>
-                                            <td class="column4">
-                                                <button class="btn btn-info" id="edit-item"
-                                                    data-item-id="{{ $list->id }}"><i class="far fa-edit"></i>
-                                                    Edit</button>
-                                            </td>
-                                            <td class="column5"><a href="/categories/delete/{{ $list->id }}"
-                                                    onclick="return confirm('Are you sure to remove <{{ $list->name }}> category?')"
-                                                    class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h4>List Categories</h4>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Created</th>
+                                <th>Updated</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($categories as $list)
+                                <tr class="data-row">
+                                    <td class="iteration">{{ $list->id }}</td>
+                                    <td class="name">{{ $list->name }}</td>
+                                    <td>{{ $list->created_at }}</td>
+                                    <td>{{ $list->updated_at }}</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-action mr-1" id="edit-item"
+                                            data-item-id="{{ $list->id }}" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <a href="/categories/delete/{{ $list->id }}" class="btn btn-danger btn-action"
+                                            data-toggle="tooltip" title="Delete"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">  <span aria-hidden="true">&times;</span></button>
-                            </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <form action="{{ route('editcategories') }}" method="POST" id="edit-form" class="form-horizontal">
                         <div class="modal-body">
-                            <form action="{{ route('editcategories') }}" method="POST" id="edit-form" class="form-horizontal">
-                                @csrf
-                                <div class="card mb-0">
-                                    <div class="card-body">
-                                        <!-- name -->
-                                        <div class="form-group">
-                                            <label class="col-form-label" for="modal-input-name">Edit the category
-                                                name</label>
-                                            <input type="text" name="name" class="form-control"
-                                                id="modal-input-name" required autofocus>
-                                            <input type="hidden" name="id" class="form-control"
-                                                id="modal-input-id">
-                                        </div>
-                                        <!-- /name -->
-                                    </div>
-                                </div>
+                            @csrf
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" id="modal-input-name" required
+                                    autofocus>
+                                <input type="hidden" name="id" class="form-control" id="modal-input-id">
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"
                                 aria-label="Close">Close</button>
-                                <button type="submit" class="btn btn-success">Save</button>
-                            </div>
-                        </form>
-                    </div>
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-    </section>
-@endsection
+        </div>
+    @endsection

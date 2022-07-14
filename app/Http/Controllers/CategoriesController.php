@@ -31,12 +31,9 @@ class CategoriesController extends Controller
         return redirect()->route('listcategories');
     }
 
-    public function UpdateCategories($id) {
-        $id = Category::getID($id);
-        return view('layouts.categories', ["id" => $id]);
-    }
 
-    public function EditCategories(CategoriesRequest $request) {
+    public function EditCategories(CategoriesRequest $request)
+    {
         $id = $request->id;
         $stmt = Category::getID($id);
         if ($stmt) {
