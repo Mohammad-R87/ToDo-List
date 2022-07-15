@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoriesRequest;
 use App\Models\Category;
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\View\ViewServiceProvider;
 
@@ -25,12 +26,14 @@ class CategoriesController extends Controller
         return;
     }
 
-    public function DeleteCategories(Category $id)
+    public function DeleteCategories($id)
     {
-        $id->delete();
+        $category = Category::getID($id);
+        Task::query()
+            ->where('category_id', $category->id)->delete();
+        $category->delete();
         return redirect()->route('listcategories');
     }
-
 
     public function EditCategories(CategoriesRequest $request)
     {

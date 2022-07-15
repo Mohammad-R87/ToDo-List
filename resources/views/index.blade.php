@@ -28,6 +28,12 @@
         gtag('config', 'UA-94034622-3');
     </script>
     <!-- /END GA -->
+    <style>
+        .hidden {
+            display: none;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -150,7 +156,7 @@
                                 <span>Tasks</span></a>
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="/tasks">List Tasks</a></li>
-                                <li><a class="nav-link" href="/add/tasks">Add Tasks</a></li>
+                                <li><a class="nav-link" href="/tasks/store">Create Tasks</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -199,11 +205,11 @@
                 var options = {
                     'backdrop': ''
                 };
-                $('#exampleModal').modal(options)
+                $('#EditModal').modal(options)
             })
 
             // on modal show
-            $('#exampleModal').on('show.bs.modal', function() {
+            $('#EditModal').on('show.bs.modal', function() {
                 var el = $(".edit-item-trigger-clicked"); // See how its usefull right here? 
                 var row = el.closest(".data-row");
 
@@ -220,8 +226,58 @@
             })
 
             // on modal hide
-            $('#exampleModal').on('hide.bs.modal', function() {
+            $('#EditModal').on('hide.bs.modal', function() {
                 $('.edit-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
+                $("#edit-form").trigger("reset");
+            })
+        })
+
+
+
+
+
+        
+        $(document).ready(function() {
+
+        $(document).on('click', "#info-item", function() {
+                $(this).addClass(
+                    'info-item-trigger-clicked'
+                ); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
+
+                var options = {
+                    'backdrop': ''
+                };
+                $('#ModalInfo').modal(options)
+            })
+
+            // on modal show
+            $('#ModalInfo').on('show.bs.modal', function() {
+                var el = $(".info-item-trigger-clicked"); // See how its usefull right here? 
+                var row = el.closest(".data-row");
+
+                // get the data
+                var id = row.children(".id").text();
+                var name = row.children(".name").text();
+                var description = row.children(".description").text();
+                var category = row.children(".category").text();
+                var created = row.children(".created").text();
+                var updated = row.children(".updated").text();
+                var done = row.children(".done").text();
+
+                // fill the data in the input fields
+                $("#info-id").val(id);
+                $("#info-name").val(name);
+                $("#info-description").val(description);
+                $("#info-category").val(category);
+                $("#info-created").val(created);
+                $("#info-updated").val(updated);
+                $("#info-done").val(done);
+
+            })
+
+            // on modal hide
+            $('#ModalInfo').on('hide.bs.modal', function() {
+                $('.info-item-trigger-clicked').removeClass('info-item-trigger-clicked')
                 $("#edit-form").trigger("reset");
             })
         })

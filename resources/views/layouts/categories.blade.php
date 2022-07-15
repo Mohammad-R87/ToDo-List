@@ -21,7 +21,7 @@
             </div>
         @endforeach
         <div class="form-group">
-            <form action="{{ route('storecategories') }}" method="POST" class="d-flex">
+            <form action="{{ route('createcategories') }}" method="POST" class="d-flex">
                 @csrf
                 <input type="text" class="form-control" name="name" placeholder="New Category...">
                 <button type="submit" class="btn btn-icon btn-lg btn-success"><i class="fas fa-check"></i></a>
@@ -52,7 +52,8 @@
                                     <td>{{ $list->updated_at }}</td>
                                     <td>
                                         <button class="btn btn-primary btn-action mr-1" id="edit-item"
-                                            data-item-id="{{ $list->id }}" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i>
+                                            data-item-id="{{ $list->id }}" data-toggle="tooltip" title="Edit"><i
+                                                class="fas fa-pencil-alt"></i>
                                         </button>
                                         <a href="/categories/delete/{{ $list->id }}" class="btn btn-danger btn-action"
                                             data-toggle="tooltip" title="Delete"><i class="fas fa-trash"></i></a>
@@ -64,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-md modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -82,9 +83,9 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
                                 aria-label="Close">Close</button>
-                            <button type="submit" class="btn btn-success">Save</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                     </form>
                 </div>
