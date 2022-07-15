@@ -24,7 +24,8 @@
             <form action="{{ route('createcategories') }}" method="POST" class="d-flex">
                 @csrf
                 <input type="text" class="form-control" name="name" placeholder="New Category...">
-                <button type="submit" class="btn btn-icon btn-lg btn-success"><i class="fas fa-check"></i></a>
+                <button type="submit" class="btn btn-icon btn-lg btn-success">
+                    <i class="fas fa-check"></i></a>
             </form>
         </div>
         <div class="card">

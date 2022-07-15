@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\TasksController;
 
 /*
@@ -16,7 +17,7 @@ use App\Http\Controllers\TasksController;
 |
 */
 /******************************** Routing Dashboard ********************************/
-Route::get('/dashboard')
+Route::get('/dashboard', [IndexController::class, 'Dashboard']);
 
 /******************************** Routing Categories ********************************/
 Route::get('/categories', [CategoriesController::class, 'ListCategories'])->name('listcategories');

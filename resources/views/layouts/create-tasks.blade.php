@@ -1,5 +1,5 @@
 @extends('index')
-@section('title', 'Tasks')
+@section('title', 'Create Tasks')
 @section('content')
     <div class="section-header">
         <div class="section-header-back">
