@@ -55,33 +55,33 @@
                      </tr>
                   </thead>
                   <tbody>
-                     @foreach ($tasks as $list)
+                     @foreach ($ListTasks as $column)
                      <tr class="data-row">
                         <td>
                            <div class="sort-handler">
                               <i class="fas fa-th"></i>
                            </div>
                         </td>
-                        <td class="iteration id">{{ $list->id }}</td>
-                        <td class="name">{{ $list->title }}</td>
-                        <td class="description hidden">{{ $list->description }}</td>
-                        <td class="created hidden">{{ $list->created_at }}</td>
-                        <td class="updated hidden">{{ $list->updated_at }}</td>
-                        <td class="done">{{ $list->done_at }}</td>
+                        <td class="iteration id">{{ $column->id }}</td>
+                        <td class="name">{{ $column->title }}</td>
+                        <td class="description hidden">{{ $column->description }}</td>
+                        <td class="created hidden">{{ $column->created_at }}</td>
+                        <td class="updated hidden">{{ $column->updated_at }}</td>
+                        <td class="done">{{ $column->done_at }}</td>
                         <td class="category"><span
-                           class="badge badge-warning">{{ $list->category->name }}</span></td>
+                           class="badge badge-warning">{{ $column->category->name }}</span></td>
                         <td>
                            <button class="btn btn-primary btn-action mr-1" id="edit-item"
-                              data-item-id="{{ $list->id }}" data-toggle="tooltip"
+                              data-item-id="{{ $column->id }}" data-toggle="tooltip"
                               title="Edit"><i class="fas fa-pencil-alt"></i>
                            </button>
-                           <a href="/tasks/delete/{{ $list->id }}"
+                           <a href="/tasks/delete/{{ $column->id }}"
                               class="btn btn-danger btn-action mr-1" data-toggle="tooltip"
                               title="Delete"><i class="fas fa-trash"></i></a>
                            <button class="btn btn-info btn-action mr-1" id="info-item" data-item-id=""
                               data-toggle="tooltip" title="Info"><i class="fas fa-info-circle"></i>
                            </button>
-                           <a href="/tasks/done/{{ $list->id }}"
+                           <a href="/tasks/done/{{ $column->id }}"
                               class="btn btn-success btn-action mr-1" data-toggle="tooltip"
                               title="Done"><i class="fas fa-check"></i></a>
                         </td>
@@ -116,8 +116,8 @@
                   <div class="form-group row mb-3">
                      <div class="col-sm-12 col-md-12">
                         <select class="form-control selectric" name="category">
-                           @foreach ($category as $stmt)
-                           <option value="{{ $stmt->id }}">{{ $stmt->name }}</option>
+                           @foreach ($ListCategories as $column)
+                           <option value="{{ $column->id }}">{{ $column->name }}</option>
                            @endforeach
                         </select>
                      </div>

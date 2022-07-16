@@ -10,13 +10,23 @@ class IndexController extends Controller
 {
     public function Dashboard()
     {
-        $AllTasks = Task::query()->get()->count();
+        $AllTasks = Task::query()
+            ->get()
+            ->count();
 
-        $AllCategories = Category::query()->get()->count();
+        $AllCategories = Category::query()
+            ->get()
+            ->count();
 
-        $DoneTasks = Task::query()->where('done_at', '!=', '')->get()->count();
+        $DoneTasks = Task::query()
+            ->where('done_at', '!=', '')
+            ->get()
+            ->count();
 
-        $UnDoneTasks = Task::query()->where('done_at',null)->get()->count();
+        $UnDoneTasks = Task::query()
+            ->where('done_at', null)
+            ->get()
+            ->count();
 
         return view('layouts.dashboard', [
             "AllTasks" => $AllTasks,

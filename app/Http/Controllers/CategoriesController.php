@@ -12,15 +12,15 @@ class CategoriesController extends Controller
 {
     public function ListCategories()
     {
-        $list = Category::query()->get()->all();
-        return view('layouts.categories', ["categories" => $list]);
+        $ListCategories = Category::getList();
+        return view('layouts.categories', ["ListCategories" => $ListCategories]);
     }
 
-    public function StoreCategories(CategoriesRequest $request)
+    public function CreateCategories(CategoriesRequest $request)
     {
-        $category = new Category();
-        $category->name = $request->name;
-        if ($category->save()) {
+        $Category = new Category();
+        $Category->name = $request->name;
+        if ($Category->save()) {
             return redirect()->route('listcategories');
         }
         return;
@@ -28,20 +28,21 @@ class CategoriesController extends Controller
 
     public function DeleteCategories($id)
     {
-        $category = Category::getID($id);
+        $CategoryID = Category::getID($id);
         Task::query()
-            ->where('category_id', $category->id)->delete();
-        $category->delete();
+            ->where('category_id', $CategoryID->id)
+            ->delete();
+        $CategoryID->delete();
         return redirect()->route('listcategories');
     }
 
     public function EditCategories(CategoriesRequest $request)
     {
         $id = $request->id;
-        $stmt = Category::getID($id);
-        if ($stmt) {
-            $stmt->name = $request->name;
-            if ($stmt->save()) {
+        $CategoryID = Category::getID($id);
+        if ($CategoryID) {
+            $CategoryID->name = $request->name;
+            if ($CategoryID->save()) {
                 return redirect()->route('listcategories');
             }
         }

@@ -45,18 +45,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $list)
+                            @foreach ($ListCategories as $column)
                                 <tr class="data-row">
-                                    <td class="iteration">{{ $list->id }}</td>
-                                    <td class="name">{{ $list->name }}</td>
-                                    <td>{{ $list->created_at }}</td>
-                                    <td>{{ $list->updated_at }}</td>
+                                    <td class="iteration">{{ $column->id }}</td>
+                                    <td class="name">{{ $column->name }}</td>
+                                    <td>{{ $column->created_at }}</td>
+                                    <td>{{ $column->updated_at }}</td>
                                     <td>
                                         <button class="btn btn-primary btn-action mr-1" id="edit-item"
-                                            data-item-id="{{ $list->id }}" data-toggle="tooltip" title="Edit"><i
+                                            data-item-id="{{ $column->id }}" data-toggle="tooltip" title="Edit"><i
                                                 class="fas fa-pencil-alt"></i>
                                         </button>
-                                        <a href="/categories/delete/{{ $list->id }}" class="btn btn-danger btn-action"
+                                        <a href="/categories/delete/{{ $column->id }}" class="btn btn-danger btn-action"
                                             data-toggle="tooltip" title="Delete"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>

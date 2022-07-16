@@ -8,13 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    
-    public function tasks() 
-    { 
-        return $this->hasMany(Task::class); 
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
     }
-    
-    public static function getID($id) {
+
+    public static function getID($id)
+    {
         return self::query()->find($id);
+    }
+
+    public static function getList()
+    {
+        return self::query()->get()->all();
     }
 }

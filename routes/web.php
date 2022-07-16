@@ -18,10 +18,9 @@ use App\Http\Controllers\TasksController;
 */
 /******************************** Routing Dashboard ********************************/
 Route::get('/dashboard', [IndexController::class, 'Dashboard']);
-
 /******************************** Routing Categories ********************************/
 Route::get('/categories', [CategoriesController::class, 'ListCategories'])->name('listcategories');
-Route::post('/categories/create', [CategoriesController::class, "StoreCategories"])->name('createcategories');
+Route::post('/categories/create', [CategoriesController::class, "CreateCategories"])->name('createcategories');
 Route::get('/categories/delete/{id}', [CategoriesController::class, "DeleteCategories"]);
 Route::post('categories/edit', [CategoriesController::class, "EditCategories"])->name('editcategories');
 /******************************** Routing Tasks ********************************/
@@ -31,4 +30,3 @@ Route::post('/tasks/create', [TasksController::class, 'CreateTasks'])->name('cre
 Route::get('/tasks/delete/{id}', [TasksController::class, "DeleteTasks"]);
 Route::post('tasks/edit', [TasksController::class, "EditTasks"])->name('edittasks');
 Route::get('tasks/done/{id}', [TasksController::class, "DoneTasks"]);
-

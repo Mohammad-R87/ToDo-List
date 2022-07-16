@@ -13,24 +13,24 @@ class TasksController extends Controller
 {
     public function ListTasks()
     {
-        $stmt = Category::query()->get()->all();
-        $list = Task::query()->get()->all();
-        return view('layouts.tasks', ["tasks" => $list, "category" => $stmt]);
+        $ListCategories = Category::getList();
+        $ListTasks = Task::getList();
+        return view('layouts.tasks', ["ListTasks" => $ListTasks, "ListCategories" => $ListCategories]);
     }
 
     public function StoreTasks()
     {
-        $stmt = Category::query()->get()->all();
-        return view('layouts.create-tasks', ["category" => $stmt]);
+        $ListCategories = Category::getList();
+        return view('layouts.create-tasks', ["ListCategories" => $ListCategories]);
     }
 
     public function CreateTasks(TasksRequest $request)
     {
-        $task = new Task();
-        $task->title = $request->title;
-        $task->category_id = $request->category;
-        $task->description = $request->description;
-        if ($task->save()) {
+        $Task = new Task();
+        $Task->title = $request->title;
+        $Task->category_id = $request->category;
+        $Task->description = $request->description;
+        if ($Task->save()) {
             return redirect()->route('listtasks');
         }
         return;
@@ -45,12 +45,12 @@ class TasksController extends Controller
     public function EditTasks(TasksRequest $request)
     {
         $id = $request->id;
-        $stmt = Task::getID($id);
-        if ($stmt) {
-            $stmt->title = $request->title;
-            $stmt->category_id = $request->category;
-            $stmt->description = $request->description;
-            if ($stmt->save()) {
+        $TaskID = Task::getID($id);
+        if ($TaskID) {
+            $TaskID->title = $request->title;
+            $TaskID->category_id = $request->category;
+            $TaskID->description = $request->description;
+            if ($TaskID->save()) {
                 return redirect()->route('listtasks');
             }
         }
@@ -59,10 +59,10 @@ class TasksController extends Controller
 
     public function DoneTasks($id)
     {
-        $stmt = Task::getID($id);
-        if ($stmt) {
-            $stmt->done_at = date("Y-m-d  h:i:s");
-            if ($stmt->save()) {
+        $TaskID = Task::getID($id);
+        if ($TaskID) {
+            $TaskID->done_at = date("Y-m-d  h:i:s");
+            if ($TaskID->save()) {
                 return redirect()->route('listtasks');
             }
         }

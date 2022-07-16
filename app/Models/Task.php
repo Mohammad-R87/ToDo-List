@@ -9,12 +9,18 @@ class Task extends Model
 {
     use HasFactory;
 
-    public function category() 
-    { 
-        return $this->belongsTo(Category::class); 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
-    public static function getID($id) {
+    public static function getID($id)
+    {
         return self::query()->find($id);
+    }
+
+    public static function getList()
+    {
+        return self::query()->get()->all();
     }
 }
