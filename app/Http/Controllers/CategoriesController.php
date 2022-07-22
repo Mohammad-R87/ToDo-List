@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoriesRequest;
 use App\Models\Category;
 use App\Models\Task;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\ViewServiceProvider;
 
 class CategoriesController extends Controller
@@ -16,12 +18,14 @@ class CategoriesController extends Controller
         return view('layouts.categories', ["ListCategories" => $ListCategories]);
     }
 
-    public function CreateCategories(CategoriesRequest $request)
+    public function CreateCategories(Category $Category, CategoriesRequest $request)
     {
-        $Category = new Category();
+        $user = Auth::user();
+
         $Category->name = $request->name;
+        $Category->user_id = $user->id;
         if ($Category->save()) {
-            return redirect()->route('listcategories');
+            return redirect()->route('listcategories')->with('success', 'Category added successfully');
         }
         return;
     }
@@ -33,7 +37,7 @@ class CategoriesController extends Controller
             ->where('category_id', $CategoryID->id)
             ->delete();
         $CategoryID->delete();
-        return redirect()->route('listcategories');
+        return redirect()->route('listcategories')->with('success', 'Category removed successfully');
     }
 
     public function EditCategories(CategoriesRequest $request)
@@ -43,7 +47,7 @@ class CategoriesController extends Controller
         if ($CategoryID) {
             $CategoryID->name = $request->name;
             if ($CategoryID->save()) {
-                return redirect()->route('listcategories');
+                return redirect()->route('listcategories')->with('success', 'Category edited successfully');
             }
         }
         return;

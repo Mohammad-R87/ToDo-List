@@ -20,6 +20,16 @@
                 </div>
             </div>
         @endforeach
+        @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                    {{ session()->get('success') }}
+                </div>
+            </div>
+        @endif
         <div class="form-group">
             <form action="{{ route('createcategories') }}" method="POST" class="d-flex">
                 @csrf
