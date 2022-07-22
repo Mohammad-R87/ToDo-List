@@ -4,7 +4,21 @@
     <div class="section-header">
         <h1>Dashboard</h1>
     </div>
-
+    <div class="card-body">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
+        <div class="alert alert-light alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+                " {{ 'Welcome user' }} {{ __(Auth::user()->name) }} "
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <div class="card card-statistic-1">

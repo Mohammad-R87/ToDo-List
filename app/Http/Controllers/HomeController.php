@@ -6,9 +6,20 @@ use App\Models\Category;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class HomeController extends Controller
 {
-    public function Dashboard()
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
     {
         $AllTasks = Task::query()
             ->get()

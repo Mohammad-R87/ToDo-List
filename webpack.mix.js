@@ -11,8 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-
-mix.styles([
+ mix.styles([
     'resources/css/bootstrap.min.css',
     'resources/css/style.css',
     'resources/css/components.css',
