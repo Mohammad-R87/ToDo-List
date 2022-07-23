@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
- mix.styles([
+mix.styles([
     'resources/css/bootstrap.min.css',
     'resources/css/style.css',
     'resources/css/components.css',
@@ -31,3 +31,20 @@ mix.scripts([
     'resources/js/scripts.js',
     'resources/js/custom.js',
 ], 'public/js/all.js');
+
+
+mix.styles([
+    'resources/css/home-css/aos.css',
+    'resources/css/home-css/bootstrap.min.css',
+    'resources/css/home-css/style.css',
+], 'public/css/home.css');
+
+
+mix.scripts([
+    'resources/js/home-js/aos.js',
+    'resources/js/home-js/glightbox.min.js',
+    'resources/js/home-js/swiper-bundle.min.js',
+    'resources/js/home-js/main.js',
+], 'public/js/home.js');
+
+

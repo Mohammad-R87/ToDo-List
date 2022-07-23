@@ -15,7 +15,7 @@ class CategoriesController extends Controller
     public function ListCategories()
     {
         $ListCategories = Category::getList();
-        return view('layouts.categories', ["ListCategories" => $ListCategories]);
+        return view('admin.categories', ["ListCategories" => $ListCategories]);
     }
 
     public function CreateCategories(Category $Category, CategoriesRequest $request)

@@ -16,13 +16,13 @@ class TasksController extends Controller
     {
         $ListCategories = Category::getList();
         $ListTasks = Task::getList();
-        return view('layouts.tasks', ["ListTasks" => $ListTasks, "ListCategories" => $ListCategories]);
+        return view('admin.tasks', ["ListTasks" => $ListTasks, "ListCategories" => $ListCategories]);
     }
 
     public function StoreTasks()
     {
         $ListCategories = Category::getList();
-        return view('layouts.create-tasks', ["ListCategories" => $ListCategories]);
+        return view('admin.create-tasks', ["ListCategories" => $ListCategories]);
     }
 
     public function CreateTasks(Task $Task ,TasksRequest $request)

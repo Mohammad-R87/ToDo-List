@@ -40,7 +40,7 @@ class HomeController extends Controller
             ->get()
             ->count();
 
-        return view('layouts.dashboard', [
+        return view('admin.dashboard', [
             "AllTasks" => $AllTasks,
             "AllCategories" => $AllCategories,
             "DoneTasks" => $DoneTasks,

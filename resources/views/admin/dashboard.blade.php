@@ -1,4 +1,4 @@
-@extends('index')
+@extends('layouts.index-admin')
 @section('title', 'Dashboard')
 @section('content')
     <div class="section-header">

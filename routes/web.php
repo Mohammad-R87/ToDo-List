@@ -36,3 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('tasks/edit', [TasksController::class, "EditTasks"])->name('edittasks');
     Route::get('tasks/done/{id}', [TasksController::class, "DoneTasks"]);
 });
+
+Route::get('/home', function() {
+    return view('home');
+});
