@@ -29,12 +29,12 @@
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="frist_name">Name</label>
-                                        <input id="name" type="text"
-                                            class="form-control @error('name') is-invalid @enderror" name="name"
-                                            value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        <label for="email">UserName</label>
+                                        <input id="username" type="username"
+                                            class="form-control @error('username') is-invalid @enderror" name="username"
+                                            value="{{ old('username') }}" required autocomplete="username">
 
-                                        @error('name')
+                                        @error('username')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

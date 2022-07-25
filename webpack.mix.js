@@ -44,6 +44,7 @@ mix.scripts([
     'resources/js/home-js/aos.js',
     'resources/js/home-js/glightbox.min.js',
     'resources/js/home-js/swiper-bundle.min.js',
+    'resources/js/home-js/typed.min.js',
     'resources/js/home-js/main.js',
 ], 'public/js/home.js');
 

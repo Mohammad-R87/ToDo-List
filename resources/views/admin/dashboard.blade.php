@@ -15,7 +15,7 @@
                 <button class="close" data-dismiss="alert">
                     <span>&times;</span>
                 </button>
-                " {{ 'Welcome user' }} {{ __(Auth::user()->name) }} "
+                " {{ 'Welcome user' }} {{ __(Auth::user()->username) }} "
             </div>
         </div>
     </div>

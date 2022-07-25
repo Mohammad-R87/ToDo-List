@@ -1,63 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>App Name - Home</title>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="../../fonts/fontawesome/css/all.min.css" />
+        <!-- Template CSS -->
+        <link rel="stylesheet" href="../css/home.css" />
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>App Name - Home</title>
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
-    <!-- Template CSS -->
-    <link href="../css/home.css" rel="stylesheet">
-</head>
-
-<body>
-    <header id="header" class="header fixed-top">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="../assets/img/logo.png" alt="">
-                <span>ToDo List</span>
-            </a>
-            <nav id="navbar" class="navbar">
+    <body>
+        <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+        <header id="header" class="d-flex flex-column justify-content-center">
+            <nav id="navbar" class="navbar nav-menu">
                 <ul>
-                    <li><a class="getstarted scrollto" href="#about">Register</a></li>
-                    <li><a class="getstarted scrollto" href="#about">Login</a></li>
+                    <li>
+                        <a href="#hero" class="nav-link scrollto active"><i class="fas fa-home"></i> <span>Home</span></a>
+                    </li>
+                    <li>
+                        <a href="/login" class="nav-link scrollto"><i class="fas fa-user-alt"></i> <span>Login</span></a>
+                    </li>
+                    <li>
+                        <a href="#Follow-Up" class="nav-link scrollto"><i class="fas fa-file"></i> <span>Follow Up</span></a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/mashhad.repair?igshid=YmMyMTA2M2Y=" target="_blank" class="nav-link scrollto"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
+                    </li>
                 </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
-            <div class="col-md-2 mobile">
-                <a class="btn-in " href="#about">Register</a>
-                <a class="btn-in" href="#about">Login</a>
+        </header>
+
+        <section id="hero" class="d-flex flex-column justify-content-center">
+            <div class="container" data-aos="zoom-in" data-aos-delay="100">
+                <h1>Mashhad Tamir</h1>
+                <p>I am a <span class="typed" data-typed-items="repairman"></span></p>
             </div>
-        </div>
-    </header>
-    <section id="hero" class="hero d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 d-flex flex-column justify-content-center">
-                    <h1 data-aos="fade-up">We offer modern solutions for growing your business</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with
-                        Bootstrap
-                    </h2>
-                    <div data-aos="fade-up" data-aos-delay="600">
-                        <div class="footer-newsletter">
-                            <div class="col-lg-12">
-                                <form action="" method="post">
-                                    <input type="text" name="code" placeholder="Enter code...">
-                                    <input type="submit" value="Search">
-                                </form>
+        </section>
+
+        <main id="main">
+            <section id="Follow-Up" class="contact">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-title">
+                        <h2>Follow Up</h2>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-lg-5">
+                            <div class="info">
+                                <div class="address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <h4>Location:</h4>
+                                    <p>Sanai Street, Sahib Zaman Square, Subhan Complex, Negative Floor 1, Unit 36</p>
+                                </div>
+
+                                <div class="email">
+                                    <i class="fas fa-envelope"></i>
+                                    <h4>Email:</h4>
+                                    <p>alihematpor9900@gmail.com</p>
+                                </div>
+
+                                <div class="phone">
+                                    <i class="fas fa-phone"></i>
+                                    <h4>Call:</h4>
+                                    <p>+98 9383275955</p>
+                                </div>
                             </div>
+                        </div>
+
+                        <div class="col-lg-7 mt-5 mt-lg-0">
+                            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                                <div class="form-group mt-3">
+                                    <input type="text" class="form-control" name="code" placeholder="Enter code..." required />
+                                </div>
+                                <div class="my-3">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                                </div>
+                                <div class="text-center"><button type="submit">Follow Up</button></div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-                    <img src="../assets/img/hero-img.png" class="img-fluid" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-    <script src="../js/home.js"></script>
-
-</body>
-
+            </section>
+        </main>
+        <div id="preloader"></div>
+        <!-- Vendor JS Files -->
+        <script src="../js/home.js"></script>
+    </body>
 </html>

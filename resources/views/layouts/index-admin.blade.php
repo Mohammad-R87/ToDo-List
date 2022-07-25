@@ -108,7 +108,7 @@
                         <a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                             <img alt="image" src="../img/avatar/avatar-1.png" class="rounded-circle mr-1">
-                            <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name }}</div>
+                            <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->username }}</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="features-profile.html" class="dropdown-item has-icon">
@@ -138,7 +138,7 @@
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
                         <li class="active">
-                            <a href="/" class="nav-link"><i
+                            <a href="/dashboard" class="nav-link"><i
                                     class="fas fa-fire"></i><span>Dashboard</span></a>
                         </li>
                         <li>

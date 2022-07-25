@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
@@ -7,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\TasksController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,7 @@ use App\Http\Controllers\TasksController;
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/categories', [CategoriesController::class, 'ListCategories'])->name('listcategories');
     Route::post('/categories/create', [CategoriesController::class, "CreateCategories"])->name('createcategories');
@@ -37,6 +39,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('tasks/done/{id}', [TasksController::class, "DoneTasks"]);
 });
 
-Route::get('/home', function() {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index']);
